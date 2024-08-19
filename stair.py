@@ -9,34 +9,18 @@ def main():
     height = 0
     kao = 0
     for _ in range(stair_num):
+        if all_height > height_can:
+            kao += count - 1
+            all_height -= height_can
+            count = 1
         height = int(input())
-        all_height += height
         if height > height_can:
             kao = 0
             break
-        if all_height > height_can and old_height:
-            kao += count
-            all_height -= old_height
-            count = 1
-            old_height = 0
-        elif all_height == height_can and not old_height:
+        elif height == height_can:
             kao += 1
-            all_height = 0
-            count = 0
-            old_height = 0
-        elif all_height == height_can:
-            kao += 1
-            count = 0
-            old_height = 0
-            all_height = 0
-        elif all_height < height_can:
+        else:
+            all_height += height_can
             count += 1
-            old_height += height
-        elif all_height > height_can:
-            kao = 0
-            break
-    if kao:
-        print(kao)
-    else:
-        print("NO")
+            old_height = all_height
 main()
