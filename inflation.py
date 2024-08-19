@@ -1,5 +1,9 @@
 """code"""
 def main(price,year):
     """inflation_cal"""
-    print(f"{int((price*(1+0.0381)**year)*100)/100}")
+    price = int(price*100)
+    while year:
+        price += int((price * 381)//10000)
+        year -= 1
+    print(f"{price//100}.{price%100:>02}")
 main(float(input()),int(input()))
