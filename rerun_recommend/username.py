@@ -1,0 +1,2 @@
+"""code"""
+print(input().lower())

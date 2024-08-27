@@ -14,16 +14,18 @@ def pool_check(low,upp,num,othe):
     return pool
 def streng(entrophy):
     """function"""
+    text = ""
     if entrophy < 28:
-        return "Very Weak"
-    if entrophy < 36:
-        return "Weak"
-    if entrophy < 60:
-        return "Reasonable"
-    if entrophy < 128:
-        return "Strong"
-    if entrophy >= 128:
-        return "Very Strong"
+        text = "Very Weak"
+    elif entrophy < 36:
+        text = "Weak"
+    elif entrophy < 60:
+        text = "Reasonable"
+    elif entrophy < 128:
+        text = "Strong"
+    else:
+        text = "Very Strong"
+    return text
 def main():
     """function"""
     text = input()
