@@ -10,18 +10,17 @@ def main():
     f= int(input())
     g= int(input())
     price = 0
-    if f < 1 or g > n or f > n or g < 1:
+    if f < 1 or g < 1 or f > n or g > n:
         print("Error")
+        return
+    if abs(g-f) <= a:
+        price = b
+    elif abs(abs(g-f)-a) <= c:
+        price = b
+        price += d * abs(abs(f-g)-a)
     else:
-        if abs(g-f) <= a:
-            price = b
-        if abs(g-f) <= a+c:
-            price = b
-            price += d *((a+c)-abs((g-(f-1))))
-        if abs(g-f) > a+c:
-            price = b
-            price += d * c
-            price += e*(abs((g-f)) - (a+c))
-    if price:
-        print(price)
+        price = b
+        price += d * c
+        price += e * abs(abs(abs(f-g)-a) -c)
+    print(price)
 main()
